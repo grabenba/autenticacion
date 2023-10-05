@@ -8,11 +8,11 @@ import UserModel from '../models/user-model';
 async function isAuth(req: Request, res: Response, next: NextFunction) {
 	const { token } = req.body;
 
-	const isAuthenticated = await UserModel.checkToken(token);
+	const isAuthorized = await UserModel.checkToken(token);
 
 	// Si el token que el cliente pone en la request no coincide con ninguno que esté en la base de datos
 	// No tiene acceso a nada.
-	if (!isAuthenticated)
+	if (!isAuthorized)
 		return res.status(401).json({ message: 'Nothing to do over here...' });
 
 	// Si coincide, está autenticado y seguimos con el proceso...
