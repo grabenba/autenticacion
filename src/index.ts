@@ -15,7 +15,7 @@ app.use(json());
 app.use('/api/users', userRouter);
 
 // Siempre es una buena práctica el configurar un endpoint para obtener el estado e info general del servidor.
-app.use('/api', (req, res) => {
+app.get('/api', (req, res) => {
 	res.status(200).json({
 		name: 'RESTful API for user management',
 		version: '1.0.0',

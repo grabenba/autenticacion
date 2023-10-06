@@ -80,9 +80,6 @@ abstract class UserModel {
 
 		const userFound = this.findUser(username);
 
-		console.log(username);
-		console.log(userFound);
-
 		if (!userFound) return 404;
 
 		// Según la data que hayan enviado a la request, modificamos lo correspondiente.
